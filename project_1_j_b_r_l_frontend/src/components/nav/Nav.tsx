@@ -6,7 +6,8 @@ function Nav() {
   return (
     <nav>
             <ul>
-                <li><Link to="register">UseContext</Link></li>
+                <li><Link to="register">Register</Link></li>
+                <li><Link to="movies">All Movies</Link></li>
             </ul>
         </nav>
   )
