@@ -4,6 +4,7 @@ import './App.css';
 import Register from './components/register/Register';
 import Nav from './components/nav/Nav';
 import GetAllMovies from './components/getallmovies/GetAllMovies';
+import GetMovieById from './components/getspecificmovie/GetMovieById';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/register' element={<Register/>}/>
           <Route path='/movies' element={<GetAllMovies/>}/>
+          <Route path='/movies/:id' element={<GetMovieById/>}/>
         </Routes>
       </BrowserRouter>
     </>

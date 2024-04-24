@@ -16,7 +16,7 @@ function GetAllMovies() {
         {movies.map((movie) => {
             return(
                 <div key={movie.movieId}>
-                    <h1>{movie.name}</h1>
+                    <a href={'http://localhost:8080/movies/'+movie.movieId}>{movie.name}</a>
                     <h2>{movie.price}</h2>
                     <span>{movie.url}</span>
                     <p>{movie.description}</p>
