@@ -3,7 +3,7 @@ import { IMovie } from "../models/IMovie";
 import MovieContainer from "../movie-container/MovieContainer";
 import axios from "axios";
 
-function AdminUserMovies(props: { movies: IMovie[] }) {
+function AdminUserMovies() {
     const [movies, setMovies] = useState<IMovie[]>([]);
     const [userId, setUserId] = useState<number>(0);
     
