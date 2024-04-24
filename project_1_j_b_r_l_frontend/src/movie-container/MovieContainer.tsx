@@ -20,7 +20,7 @@ function MovieContainer(props: { movies: IMovie[] }) {
         let response = await axios.get("http://localhost:8080/users/movies", {
             headers: {
                 "Content-Type": "application/json",
-                "username": "tempUser"
+                "username": localStorage.username
             }
         });
         setMovies(response.data);
