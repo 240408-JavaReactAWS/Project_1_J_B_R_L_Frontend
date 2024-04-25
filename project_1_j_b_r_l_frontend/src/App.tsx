@@ -7,6 +7,8 @@ import Register from './components/register/Register';
 import GetAllMovies from './components/getallmovies/GetAllMovies';
 import GetMovieById from './components/getspecificmovie/GetMovieById';
 import AdminAddMovie from './components/addMovies/adminAddMovie';
+import LoginForm from './components/login/LoginForm';
+
 
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
           <Route path='/register' element={<Register/>}/>
           {/* <Route path='/movies' element={<GetAllMovies/>}/> */}
           <Route path='/movies/:id' element={<GetMovieById/>}/>
+          <Route path='/users/login' element={<LoginForm/>}/> 
         </Routes>
       </BrowserRouter>
     </>
