@@ -11,6 +11,7 @@ function GetMovieById() {
         .then(response => {
            setMovie(response.data)
         })
+        .catch((error) => {console.log(error)})
     }
     React.useEffect(getMovie, [])
   return (
