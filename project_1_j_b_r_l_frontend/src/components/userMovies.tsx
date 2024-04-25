@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 interface Movie {
-    movie_id: number;
+    movieId: number;
     name: string;
     price: number;
     url: string;
@@ -42,9 +43,9 @@ const UserMovies: React.FC = () => {
                 </thead>
                 <tbody>
                     {movies.map((movie) => (
-                        <tr key={movie.movie_id}>
-                            <td>{movie.movie_id}</td>
-                            <td>{movie.name}</td>
+                        <tr key={movie.movieId}>
+                            <td>{movie.movieId}</td>
+                            <td><Link to={'/movies/'+movie.movieId}>{movie.name}</Link></td>
                             <td>${movie.price}.00</td>
                             <td>{movie.description}</td>
                             <td><img src={movie.url} alt="movie poster" width="100" height="150" /></td>

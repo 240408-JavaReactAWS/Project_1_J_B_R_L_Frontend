@@ -17,6 +17,13 @@ const Nav: React.FC = () => {
                 <li className="nav-item">
                     <Link className="nav-link" to="/movies">Movie List</Link>
                 </li>
+                <li className="nav-item">
+                  <Link to="register"className="nav-link">Register</Link>
+                </li>
+                
+                <li className="nav-item">
+                  <Link className="nav-link" to="movies">All Movies</Link>
+                </li>
             </ul>
         </nav>
     );
