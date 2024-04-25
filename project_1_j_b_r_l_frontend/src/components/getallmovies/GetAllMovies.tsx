@@ -18,7 +18,7 @@ function GetAllMovies() {
             return(
                 <div key={movie.movieId}>
                     <Link to={'/movies/'+movie.movieId}>{movie.name}</Link>
-                    <h2>{movie.price}</h2>
+                    <h2>${movie.price % 1 === 0 ? movie.price.toFixed(2) : movie.price}</h2>
                     <span>{movie.url}</span>
                     <p>{movie.description}</p>
                 </div>

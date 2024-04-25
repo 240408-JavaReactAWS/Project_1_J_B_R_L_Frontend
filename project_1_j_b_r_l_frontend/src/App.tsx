@@ -6,6 +6,7 @@ import Nav from './components/nav/Nav';
 import Register from './components/register/Register';
 import GetAllMovies from './components/getallmovies/GetAllMovies';
 import GetMovieById from './components/getspecificmovie/GetMovieById';
+import AdminAddMovie from './components/addMovies/adminAddMovie';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Nav/>
         <Routes>
           <Route path="/movies" Component={UserMovies}></Route>
+          <Route path="/" Component={AdminAddMovie}></Route>
           <Route path='/register' element={<Register/>}/>
           {/* <Route path='/movies' element={<GetAllMovies/>}/> */}
           <Route path='/movies/:id' element={<GetMovieById/>}/>
