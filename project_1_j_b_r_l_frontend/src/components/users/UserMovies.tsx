@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { IMovie } from "../models/IMovie";
+import { IMovie } from "../../models/IMovie";
 import MovieContainer from "../movie-container/MovieContainer";
 
 function UserMovies() {

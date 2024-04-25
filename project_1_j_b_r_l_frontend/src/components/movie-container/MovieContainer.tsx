@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { IMovie } from "../models/IMovie";
+import { IMovie } from "../../models/IMovie";
 import "./MovieContainer.css";
 import Movie from "../movie/Movie";
 import axios from "axios";
