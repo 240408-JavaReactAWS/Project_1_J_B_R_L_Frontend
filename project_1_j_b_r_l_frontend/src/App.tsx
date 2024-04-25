@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/movies" Component={UserMovies}></Route>
           <Route path='/register' element={<Register/>}/>
-          <Route path='/movies' element={<GetAllMovies/>}/>
+          {/* <Route path='/movies' element={<GetAllMovies/>}/> */}
           <Route path='/movies/:id' element={<GetMovieById/>}/>
         </Routes>
       </BrowserRouter>

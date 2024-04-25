@@ -18,11 +18,11 @@ const Nav: React.FC = () => {
                     <Link className="nav-link" to="/movies">Movie List</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="register">Register</Link>
+                  <Link to="register"className="nav-link">Register</Link>
                 </li>
                 
                 <li className="nav-item">
-                  <Link to="movies">All Movies</Link>
+                  <Link className="nav-link" to="movies">All Movies</Link>
                 </li>
             </ul>
         </nav>
