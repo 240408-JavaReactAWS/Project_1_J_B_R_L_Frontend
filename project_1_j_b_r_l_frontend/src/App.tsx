@@ -1,19 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import UserMovies from './components/userMovies';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nav from './components/nav/Nav';
+import Register from './components/register/Register';
+import GetAllMovies from './components/getallmovies/GetAllMovies';
+import GetMovieById from './components/getspecificmovie/GetMovieById';
+
 
 function App() {
   return (
     <>
-      {/* <UserMovies/> */}
+
       <BrowserRouter>
-      <Nav></Nav>
+        <Nav/>
         <Routes>
-          
           <Route path="/movies" Component={UserMovies}></Route>
+          <Route path='/register' element={<Register/>}/>
+          <Route path='/movies' element={<GetAllMovies/>}/>
+          <Route path='/movies/:id' element={<GetMovieById/>}/>
         </Routes>
       </BrowserRouter>
     </>
