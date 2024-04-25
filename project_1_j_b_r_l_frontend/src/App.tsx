@@ -1,6 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import UserMovies from './components/userMovies';
+import Nav from './components/nav/Nav';
+import Register from './components/register/Register';
+import GetAllMovies from './components/getallmovies/GetAllMovies';
+import GetMovieById from './components/getspecificmovie/GetMovieById';
+
 
 function App() {
   return (
