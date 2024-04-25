@@ -1,0 +1,59 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+interface Movie {
+    movie_id: number;
+    name: string;
+    price: number;
+    url: string;
+    description: string;
+}
+
+const UserMovies: React.FC = () => {
+    const [movies, setMovies] = useState<Movie[]>([]);
+    const [error, setError] = useState<string>('');
+
+    useEffect(() => {
+        fetchMovies();
+    }, []);
+
+    const fetchMovies = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/movies');
+            setMovies(response.data);
+        } catch (error) {
+            console.error('Error fetching movies:', error);
+            setError('Failed to fetch movies.');
+        }
+    };
+
+    return (
+        <div>
+            <h1>Movie List</h1>
+            {error && <p>{error}</p>}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {movies.map((movie) => (
+                        <tr key={movie.movie_id}>
+                            <td>{movie.movie_id}</td>
+                            <td>{movie.name}</td>
+                            <td>${movie.price}.00</td>
+                            <td>{movie.description}</td>
+                            <td><img src={movie.url} alt="movie poster" width="100" height="150" /></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+export default UserMovies;
