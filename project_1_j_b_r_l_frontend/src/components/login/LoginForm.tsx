@@ -15,16 +15,23 @@ function LoginForm() {
         setPassword((e.target as HTMLInputElement).value)
     }
 
-    let login = async() => {
-        let res = await axios.post('http://localhost:8080/users/login', {username, password})
-                        .then((response) => {
-                            localStorage.setItem("username", response.data.username)
-                            return response.data}
-                        )
-                        .catch( (error) => {
-                            localStorage.removeItem("username")
-                            console.error(error)
-                        });
+    let login = async(e: React.FormEvent) => {
+        e.preventDefault();
+
+        let res = await axios.post('http://localhost:8080/users/login', {
+            username: username, 
+            password: password
+        })
+        .then((response) => {
+            localStorage.setItem("username", response.data.username);
+            setUsername('');
+            setPassword('');
+            return response.data;
+        })
+        .catch((error) => {
+            localStorage.removeItem("username");
+            console.error(error);
+        });
 
        
         setCurrentUser(res)
@@ -38,7 +45,7 @@ function LoginForm() {
                 <input onChange={updateUsername} type="text" name="username" />
                 <label>Password</label>
                 <input onChange={updatePassword} type="password" name="password" />
-                <button onClick={login}>Login</button>
+                <button type="submit" onClick={login}>Login</button>
             </form>
         </div>
     )
