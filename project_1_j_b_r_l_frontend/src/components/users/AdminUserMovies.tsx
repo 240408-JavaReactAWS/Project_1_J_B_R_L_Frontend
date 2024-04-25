@@ -1,5 +1,5 @@
 import React, { SyntheticEvent, useState } from "react";
-import { IMovie } from "../models/IMovie";
+import { IMovie } from "../../models/IMovie";
 import MovieContainer from "../movie-container/MovieContainer";
 import axios from "axios";
 
