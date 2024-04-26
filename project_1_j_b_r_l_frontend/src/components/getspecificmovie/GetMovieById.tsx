@@ -30,7 +30,7 @@ function GetMovieById() {
             <h2>{movie.price}</h2> {/* This probably doesn't need to be displayed if you own it*/}
             <span>{movie.url}</span> {/* Maybe skip this for the button? */}
             <p>{movie.description}</p>
-            <LinkButton link="https://youtube.com"/> {/* This is a placeholder for the actual link*/}
+            <LinkButton link="https://google.com"/> {/* This is a placeholder for the actual link*/}
             <BuyButton movieId={movie.movieId}/> {/* Only one of these two buttons should be displayed based on whether or not you own the movie */}
             {/* We need to find some way to pass along if the movie is owned or not */}
         </div>
