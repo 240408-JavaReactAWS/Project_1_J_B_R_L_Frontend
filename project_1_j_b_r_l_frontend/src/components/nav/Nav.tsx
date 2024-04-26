@@ -12,7 +12,7 @@ const Nav: React.FC = () => {
                     <Link className="nav-link" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/">Add Movie</Link>
+                    <Link className="nav-link" to="/admin-controls/createmovie">Add Movie</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/movies">Movie List</Link>
