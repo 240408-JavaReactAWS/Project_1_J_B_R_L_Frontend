@@ -26,6 +26,10 @@ const Nav: React.FC = () => {
                 </li>
 
                 <li className="nav-item">
+                  <Link className="nav-link" to="/users/admin-user-movies">(Admin) Get Users Movies</Link>
+                </li>
+
+                <li className="nav-item">
                   <Link className="nav-link" to="/users/login">Login</Link>
                 </li>
             </ul>
