@@ -24,7 +24,7 @@ const AdminAddMovie: React.FC = () => {
         event.preventDefault();
         try {
             console.log(movie);
-            const response = await axios.post('http://localhost:8080/movies', movie);
+            const response = await axios.post('http://localhost:8080/movies', movie, {headers:{'user':localStorage.username}});
             console.log(response.data);
             // Handle the response from the server
         } catch (error) {
