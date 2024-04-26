@@ -46,7 +46,8 @@ const UserMovies: React.FC = () => {
                         <tr key={movie.movieId}>
                             <td>{movie.movieId}</td>
                             <td><Link to={'/movies/'+movie.movieId}>{movie.name}</Link></td>
-                            <td>${movie.price}.00</td>
+                            <td>${movie.price % 1 === 0 ? movie.price.toFixed(2) : movie.price}</td>
+
                             <td>{movie.description}</td>
                             <td><img src={movie.url} alt="movie poster" width="100" height="150" /></td>
                         </tr>
