@@ -14,6 +14,16 @@ function GetMovieById() {
         })
         .catch((error) => {console.log(error)})
     }
+
+    const buyMovie = () => {
+      axios.post('http://localhost:8080/movies/buy/'+id, {}, {headers: {
+                      "user": localStorage.getItem('username')
+                    }})
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch((error) => {console.log(error)})
+    }
       React.useEffect(getMovie, [])
     return (
       <div className="container">
@@ -24,6 +34,7 @@ function GetMovieById() {
       <a href={movie?.url} className='tv-style'>{movie?.url}</a> <br/>
       <br/>
       <p className="card-text">{movie?.description}</p>
+        <button onClick={buyMovie}>Buy</button>
       </div>
       </div>
       </div>
