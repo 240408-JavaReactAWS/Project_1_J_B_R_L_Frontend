@@ -9,6 +9,7 @@ import GetMovieById from './components/getspecificmovie/GetMovieById';
 import AdminAddMovie from './components/addMovies/adminAddMovie';
 import LoginForm from './components/login/LoginForm';
 import AdminUserMovies from './components/users/AdminUserMovies';
+import MyMovies from './components/users/MyMovies';
 
 
 
@@ -25,7 +26,7 @@ function App() {
           {/* <Route path='/movies' element={<GetAllMovies/>}/> */}
           <Route path='/movies/:id' element={<GetMovieById/>}/>
           <Route path='/users/login' element={<LoginForm/>}/> 
-          <Route path='/users/movies' element={<UserMovies/>}/>
+          <Route path='/users/myMovies' element={<MyMovies/>}/>
           <Route path='/users/admin-user-movies' element={<AdminUserMovies/>}/>
         </Routes>
       </BrowserRouter>
