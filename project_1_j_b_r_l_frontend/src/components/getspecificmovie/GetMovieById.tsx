@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React from 'react'
+import './GetMovieById.css';
 import { useParams } from 'react-router-dom'
 import { Movie } from '../../models/movie'
 
@@ -9,22 +10,35 @@ function GetMovieById() {
     const getMovie = () => {
         axios.get<Movie>('http://localhost:8080/movies/'+id)
         .then(response => {
-           setMovie(response.data)
+          setMovie(response.data)
         })
         .catch((error) => {console.log(error)})
     }
-    React.useEffect(getMovie, [])
-  return (
-    <div>
-        
-        <div key={movie?.movieId}>
-            <h1>{movie?.name}</h1>
-            <h2>{movie?.price}</h2>
-            <span>{movie?.url}</span>
-            <p>{movie?.description}</p>
-        </div>
-    </div>
-  )
+
+    const buyMovie = () => {
+      axios.post('http://localhost:8080/movies/buy/'+id, {}, {headers: {
+                      "user": localStorage.getItem('username')
+                    }})
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch((error) => {console.log(error)})
+    }
+      React.useEffect(getMovie, [])
+    return (
+      <div className="container">
+      <div className="card" style={{ width: '18rem' }}>
+      <div className="card-body">
+      <h1 className="card-title">{movie?.name}</h1>
+      <h2 className="card-text">${(movie?.price ?? 0) % 1 === 0 ? movie?.price?.toFixed(2) : movie?.price}</h2>
+      <a href={movie?.url} className='tv-style'>{movie?.url}</a> <br/>
+      <br/>
+      <p className="card-text">{movie?.description}</p>
+        <button onClick={buyMovie}>Buy</button>
+      </div>
+      </div>
+      </div>
+    )
 }
 
 export default GetMovieById
