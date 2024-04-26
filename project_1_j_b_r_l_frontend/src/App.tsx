@@ -9,6 +9,7 @@ import GetMovieById from './components/getspecificmovie/GetMovieById';
 import MovieForm from './components/movie-form/MovieForm';
 import AdminAddMovie from './components/addMovies/adminAddMovie';
 import LoginForm from './components/login/LoginForm';
+import AdminUserMovies from './components/users/AdminUserMovies';
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
           <Route path='/movies/:id' element={<GetMovieById/>}/>
           <Route path='/admin-controls/createmovie' element={<MovieForm/>}/>
           <Route path='/users/login' element={<LoginForm/>}/> 
+          <Route path='/users/movies' element={<UserMovies/>}/>
+          <Route path='/users/admin-user-movies' element={<AdminUserMovies/>}/>
         </Routes>
       </BrowserRouter>
     </>
