@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function LoginForm() {
     const [username, setUsername] = useState('');
@@ -46,6 +47,11 @@ function LoginForm() {
                 <input onChange={updatePassword} type="password" name="password" />
                 <button type="submit" onClick={login}>Login</button>
             </form>
+            <p>
+                <Link className="link-secondary" to="/users/forgot-password">
+                    Forgot password?
+                </Link>
+            </p>
         </div>
     )
 }
