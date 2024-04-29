@@ -17,6 +17,7 @@ import OTPForm from './components/reset-password-form/OTPForm';
 import ResetPasswordForm from './components/reset-password-form/ResetPasswordForm';
 import GetAllUsers from './components/users/GetAllUsers';
 import MoneyButton from './components/moneybutton/MoneyButton';
+import FrontPage from './components/frontpage/FrontPage';
 
 
 function App() {
@@ -29,8 +30,8 @@ function App() {
         <Nav/>
         <Routes>
           <Route path="/movies" Component={UserMovies}></Route>
-          <Route path="/" Component={AdminAddMovie}></Route>
-          <Route path='/register' element={<Register/>}/>
+          <Route path="/" Component={FrontPage}></Route>
+          <Route path='/users/register' element={<Register/>}/>
           {/* <Route path='/movies' element={<GetAllMovies/>}/> */}
           <Route path='/' element={<LoginForm/>}/>
           <Route path='/movies/:id' element={<GetMovieById/>}/>

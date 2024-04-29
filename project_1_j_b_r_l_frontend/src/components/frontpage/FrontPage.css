@@ -1,0 +1,19 @@
+.center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#watch {
+    font-size: 20pt;
+}
+
+#register {
+    font-size: 15pt;
+}
+
+#disclaimer {
+    font-size: 8pt;
+}
