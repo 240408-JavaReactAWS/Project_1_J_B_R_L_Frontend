@@ -9,6 +9,7 @@ import GetMovieById from './components/getspecificmovie/GetMovieById';
 import MovieForm from './components/movie-form/MovieForm';
 import AdminAddMovie from './components/addMovies/adminAddMovie';
 import LoginForm from './components/login/LoginForm';
+import UpdateMovieForm from './components/updateMovies/updateMovieForm';
 import AdminUserMovies from './components/users/AdminUserMovies';
 import MyMovies from './components/users/MyMovies';
 import ForgotPasswordForm from './components/reset-password-form/ForgotPasswordForm';
@@ -33,6 +34,7 @@ function App() {
           <Route path='/' element={<LoginForm/>}/>
           <Route path='/movies/:id' element={<GetMovieById/>}/>
           <Route path='/admin-controls/createmovie' element={<MovieForm/>}/>
+          <Route path='/admin-controls/movies/:id' element={<UpdateMovieForm/>}/>
           <Route path='/users/login' element={<LoginForm/>}/> 
           <Route path='/users/forgot-password' element={<ForgotPasswordForm/>}/>
           <Route path='/users/reset-password/OTP/:email' element={<OTPForm/>}/>
