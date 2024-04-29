@@ -16,6 +16,7 @@ import ForgotPasswordForm from './components/reset-password-form/ForgotPasswordF
 import OTPForm from './components/reset-password-form/OTPForm';
 import ResetPasswordForm from './components/reset-password-form/ResetPasswordForm';
 import GetAllUsers from './components/users/GetAllUsers';
+import MoneyButton from './components/moneybutton/MoneyButton';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path='/users/myMovies' element={<MyMovies/>}/>
           <Route path='/users/admin-user-movies' element={<AdminUserMovies/>}/>
           <Route path='/users/admin-users' element={<GetAllUsers/>}/>
+          <Route path='/users/addMoney' element={<MoneyButton/>}/>
           <Route path='*' element={<h1>404 Not Found</h1>}/>
         </Routes>
       </BrowserRouter>
