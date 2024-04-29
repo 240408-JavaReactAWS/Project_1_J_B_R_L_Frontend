@@ -1,5 +1,9 @@
 export interface IUser {
     userId: number;
-    name: string;
+    username: string;
     password: string;
+    name: string;
+    email: string;
+    balance: number;
+    admin: boolean;
 }
