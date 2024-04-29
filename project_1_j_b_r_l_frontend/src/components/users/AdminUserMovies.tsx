@@ -16,12 +16,9 @@ function AdminUserMovies() {
     let getMovies = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        let response = await axios.get(`http://localhost:8080/users/admin/${userId}`, {
-            headers: {
-                "Content-Type": "application/json",
-                "user": localStorage.username
-            }
-        }).then((response) => {
+        let response = await axios.get(`http://localhost:8080/users/admin/${userId}`, 
+        {withCredentials: true}
+        ).then((response) => {
             setMovies(response.data);
             setSubmitted(true);
         }).catch((error) => {
@@ -31,7 +28,7 @@ function AdminUserMovies() {
 
     let checkAdmin = () => {
         if(localStorage.getItem("admin") === "false") {
-            navigate("/users/login")
+            navigate("/users/myMovies")
         }
     }
 

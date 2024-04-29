@@ -49,12 +49,16 @@ function Register() {
       isAdmin: isAdmin
     }
     console.log(newUser)
-     let response = await axios.post('http://localhost:8080/users/register', newUser)
-     .then((response) => {localStorage.setItem('user', response.data.username)
-     console.log(response.status)
-                    return response})
-      .catch((error) => {localStorage.removeItem('user')
-                        return error.response
+     let response = await axios.post('http://localhost:8080/users/register', newUser, {withCredentials: true})
+     .then((response) => {
+            console.log(response.status)
+            localStorage.setItem("username", response.data.username)
+            localStorage.setItem("admin", response.data.admin)
+            return response})
+      .catch((error) => {
+        localStorage.removeItem('user')
+        localStorage.removeItem('admin')
+        return error.response
       })
     if (response.status === 201) {
       console.log('User Registered')

@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from "react";
+import React, { SyntheticEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -36,6 +36,14 @@ function LoginForm() {
             console.error(error);
         });
     }
+
+    let checkAdmin = () => {
+        if(localStorage.getItem("admin") === "false") {
+            navigate("/")
+        }
+    }
+
+    useEffect(checkAdmin, [])
     
     return (
         <div>

@@ -10,9 +10,7 @@ function MyMovies() {
 
     let getMovies = async () => {
         let response = await axios.get("http://localhost:8080/users/myMovies", {
-            headers: {
-                "user": localStorage.username
-            }
+            withCredentials: true
         }).then((response) => {
             setMovies(response.data);
         }).catch((error) => {
