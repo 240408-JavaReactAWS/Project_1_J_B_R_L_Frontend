@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -36,8 +36,8 @@ function Register() {
     setEmail(e.target.value)
   }
 
-  const handleIsAdminChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsAdmin(e.target.checked)
+  const handleIsAdminChange = () => {
+    setIsAdmin(!isAdmin)
   }
 
   const handleRegister = async () => {
@@ -76,7 +76,7 @@ function Register() {
         <label>Password: <input id='passwordInput' type='password' onChange={handlePasswordChange}/></label>
         <label>Name: <input id='nameInput' type='text' onChange={handleNameChange}/></label>
         <label>Email: <input id='emailInput' type='text' onChange={handleEmailChange}/></label>
-        <label>Is Admin: <input id='usernameInput' type='checkbox' onChange={handleIsAdminChange}/></label>
+        <label>Is Admin: <input id='usernameInput' type='checkbox' onClick={handleIsAdminChange}/></label>
         <button onClick={handleRegister}>Register!</button>
       </div>
       <div>
