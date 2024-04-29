@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function LoginForm() {
     const [username, setUsername] = useState('');
@@ -21,7 +22,7 @@ function LoginForm() {
         let res = await axios.post('http://localhost:8080/users/login', {
             username: username,
             password: password
-        })
+        }, {withCredentials: true})
         .then((response) => {
             localStorage.setItem("username", response.data.username);
             localStorage.setItem("admin", response.data.admin);
@@ -46,6 +47,11 @@ function LoginForm() {
                 <input onChange={updatePassword} type="password" name="password" />
                 <button type="submit" onClick={login}>Login</button>
             </form>
+            <p>
+                <Link className="link-secondary" to="/users/forgot-password">
+                    Forgot password?
+                </Link>
+            </p>
         </div>
     )
 }
