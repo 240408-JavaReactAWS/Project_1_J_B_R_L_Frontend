@@ -34,6 +34,10 @@ const Nav: React.FC = () => {
                 </li>
 
                 <li className="nav-item">
+                  <Link className="nav-link" to="/users/admin-users">(Admin) Get Users</Link>
+                </li>
+
+                <li className="nav-item">
                   <Link className="nav-link" to="/users/login">Login</Link>
                 </li>
             </ul>
