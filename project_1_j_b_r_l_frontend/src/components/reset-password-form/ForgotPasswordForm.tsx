@@ -12,8 +12,12 @@ function ForgotPasswordForm() {
     let setEmailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
     }
-    let sendEmail = async() => {
-        
+    let sendEmail = async(e: MouseEvent) => {
+        e.preventDefault();
+        if(email === '') { 
+            document.querySelector('.alert-container')!.innerHTML =`<div class="alert alert-danger" role="alert"><strong>Oh no! </strong>Please enter an email address.</div>`
+            return;
+        }
         let res = await axios.post(`http://localhost:8080/users/${email}/forgot-password`)
         .then((response) => {
             console.log(response);
@@ -37,7 +41,7 @@ function ForgotPasswordForm() {
             <p>Enter your email address and we'll send you a link with instructions on how to reset your password.</p>
             <input type="email" onChange={setEmailHandler} className="form-control" id="email" placeholder='name@example.com' />
             <div className='d-grid gap-2'>
-                <button type="button" onClick={sendEmail} className="btn btn-primary" id="email-button">Send Email</button>
+                <button type="submit" onClick={(e) => sendEmail(e)} className="btn btn-primary" id="email-button">Send Email</button>
             </div>
         </form>        
     </div>

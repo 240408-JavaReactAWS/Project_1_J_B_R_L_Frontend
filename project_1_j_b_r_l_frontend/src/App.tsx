@@ -13,9 +13,12 @@ import AdminUserMovies from './components/users/AdminUserMovies';
 import MyMovies from './components/users/MyMovies';
 import ForgotPasswordForm from './components/reset-password-form/ForgotPasswordForm';
 import OTPForm from './components/reset-password-form/OTPForm';
+import ResetPasswordForm from './components/reset-password-form/ResetPasswordForm';
 
 
 function App() {
+  //AdminAuthentication(MovieForm);
+
   return (
     <>
 
@@ -32,6 +35,7 @@ function App() {
           <Route path='/users/login' element={<LoginForm/>}/> 
           <Route path='/users/forgot-password' element={<ForgotPasswordForm/>}/>
           <Route path='/users/reset-password/OTP/:email' element={<OTPForm/>}/>
+          <Route path='/users/reset-password' element={<ResetPasswordForm/>}/>
           <Route path='/users/myMovies' element={<MyMovies/>}/>
           <Route path='/users/admin-user-movies' element={<AdminUserMovies/>}/>
           <Route path='*' element={<h1>404 Not Found</h1>}/>

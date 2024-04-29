@@ -22,7 +22,7 @@ function LoginForm() {
         let res = await axios.post('http://localhost:8080/users/login', {
             username: username,
             password: password
-        })
+        }, {withCredentials: true})
         .then((response) => {
             localStorage.setItem("username", response.data.username);
             localStorage.setItem("admin", response.data.admin);
