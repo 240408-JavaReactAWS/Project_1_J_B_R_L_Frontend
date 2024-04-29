@@ -1,14 +1,18 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 
 function MoneyButton(){
     const [amount, setAmount] = useState(0);
+
+    let updateAmount = (e: SyntheticEvent) => {
+        setAmount(parseInt((e.target as HTMLInputElement).value))
+    }  
     
     const handleButtonClick = async () => {
-        setAmount(Number((document.getElementById('amount') as HTMLInputElement).value));
+        // setAmount(Number((document.getElementById('amount') as HTMLInputElement).value));
 
         try {
-        const response = await axios.patch('http://localhost:8080/users/addMoney', String(amount),
+        const response = await axios.patch('http://localhost:8080/users/addMoney', {balance: amount},
             {withCredentials: true});
 
                 if (response.status === 200) {
@@ -28,7 +32,7 @@ function MoneyButton(){
     return (
         <div>
             <label htmlFor="amount">Amount:</label>
-            <input type="number" id="amount" name="amount" />
+            <input onChange={updateAmount} type="number" id="amount" name="amount" />
             <button onClick={handleButtonClick}>
                 Add Money
             </button>
