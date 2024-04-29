@@ -27,7 +27,7 @@ function App() {
         <Nav/>
         <Routes>
           <Route path="/movies" Component={UserMovies}></Route>
-          <Route path="/" Component={AdminAddMovie}></Route>
+          <Route path="/admin-controls/addmovie" Component={AdminAddMovie}></Route>
           <Route path='/register' element={<Register/>}/>
           {/* <Route path='/movies' element={<GetAllMovies/>}/> */}
           <Route path='/' element={<LoginForm/>}/>

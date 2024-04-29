@@ -37,8 +37,8 @@ function Register() {
     setEmail(e.target.value)
   }
 
-  const handleIsAdminChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsAdmin(e.target.checked)
+  const handleIsAdminChange = () => {
+    setIsAdmin(!isAdmin)
   }
 
   const handleRegister = async () => {
@@ -96,7 +96,7 @@ function Register() {
         </div>
         <div className='form-group'>
           <label htmlFor='isAdminInput'>Is Admin:</label>
-          <input id='isAdminInput' type='checkbox' onChange={handleIsAdminChange} />
+          <input id='isAdminInput' type='checkbox' onClick={handleIsAdminChange} />
         </div>
         <button onClick={handleRegister}>Register!</button>
       </div>

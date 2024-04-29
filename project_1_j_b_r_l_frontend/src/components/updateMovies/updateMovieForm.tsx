@@ -11,7 +11,7 @@ function UpdateMovieForm() {
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [url, setURL] = useState('');
-    const [snapshot, setSnapshot] = useState('');
+    // const [snapshot, setSnapshot] = useState('');
 
 
     const navigate = useNavigate();
@@ -37,8 +37,8 @@ function UpdateMovieForm() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-      
-       
+    
+    
 
         try {
             await axios.put(`http://localhost:8080/movies/${id}`, {
@@ -46,7 +46,7 @@ function UpdateMovieForm() {
                 price: price,
                 description: description,
                 url: url,
-                snapshoturl: snapshot
+                // snapshoturl: snapshot
             }, { withCredentials: true});
 
             alert(`${movieTitle} has been updated successfully!`);
@@ -77,10 +77,10 @@ function UpdateMovieForm() {
                 <label htmlFor="url" className="form-label">Source URL</label>
                 <input type="text" className="form-control" id="url" value={url} onChange={e => setURL(e.target.value)} required/>
             </div>
-            <div className="col-md-6">
+            {/* <div className="col-md-6">
                 <label htmlFor="snapshot" className="form-label">Snapshot URL</label>
                 <input type="text" className="form-control" id="snapshot" value={snapshot} onChange={e => setSnapshot(e.target.value)} required/>
-            </div>
+            </div> */}
             <div className="col-12">
                 <button type="submit" className="btn btn-primary">Update</button>
                 <button type="button" className="btn btn-danger" onClick={() => navigate('/')}>Cancel</button>
