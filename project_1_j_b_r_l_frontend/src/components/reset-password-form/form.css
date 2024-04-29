@@ -1,0 +1,20 @@
+.form-outer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 2px;
+    border-color: #040714;
+}
+.form-inner-container {
+    background-color: aliceblue;
+    padding: 20px;
+    margin-top:20px;
+    width: 450px;
+}
+.form-header {
+    text-align: center;
+}
+#email-button {
+    margin-top: 20px;
+}
