@@ -1,12 +1,13 @@
 
 import React, { SyntheticEvent, useState } from "react";
-import { IUser } from "../../models/IUser";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [currentUser, setCurrentUser] = useState<IUser>();
+    const navigate = useNavigate();
 
     let updateUsername= (e: SyntheticEvent) => {
         setUsername((e.target as HTMLInputElement).value)
@@ -20,22 +21,21 @@ function LoginForm() {
         e.preventDefault();
 
         let res = await axios.post('http://localhost:8080/users/login', {
-            username: username, 
+            username: username,
             password: password
-        })
+        }, {withCredentials: true})
         .then((response) => {
             localStorage.setItem("username", response.data.username);
+            localStorage.setItem("admin", response.data.admin);
             setUsername('');
             setPassword('');
-            return response.data;
+            navigate("/movies");
         })
         .catch((error) => {
             localStorage.removeItem("username");
+            localStorage.removeItem("admin");
             console.error(error);
         });
-
-       
-        setCurrentUser(res)
     }
     
     return (
@@ -59,6 +59,7 @@ function LoginForm() {
         </div>
     )
 }
+
 
 
 export default LoginForm;

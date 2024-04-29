@@ -14,7 +14,7 @@ function UserMovies() {
         let response = await axios.get("http://localhost:8080/users/movies", {
             headers: {
                 "Content-Type": "application/json",
-                "username": localStorage.username
+                "user": localStorage.username
             }
         });
         setMovies(response.data);

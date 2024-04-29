@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import './Register.css'
+import { useNavigate } from 'react-router-dom'
 
 export interface IRegisterProps {
   username: string,
@@ -17,6 +18,8 @@ function Register() {
   const [email, setEmail] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
   const [error, setError] = useState('')
+  const navigate = useNavigate()
+
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value)
@@ -61,6 +64,8 @@ function Register() {
       console.log('User Registered')
       setError('User Registered')
 
+      navigate('/movies')
+      
     } else {
       setError(response.data)
       console.log(response.data)

@@ -10,9 +10,16 @@ import MovieForm from './components/movie-form/MovieForm';
 import AdminAddMovie from './components/addMovies/adminAddMovie';
 import LoginForm from './components/login/LoginForm';
 import UpdateMovieForm from './components/updateMovies/updateMovieForm';
+import AdminUserMovies from './components/users/AdminUserMovies';
+import MyMovies from './components/users/MyMovies';
+import ForgotPasswordForm from './components/reset-password-form/ForgotPasswordForm';
+import OTPForm from './components/reset-password-form/OTPForm';
+import ResetPasswordForm from './components/reset-password-form/ResetPasswordForm';
 
 
 function App() {
+  //AdminAuthentication(MovieForm);
+
   return (
     <>
 
@@ -28,6 +35,12 @@ function App() {
           <Route path='/admin-controls/createmovie' element={<MovieForm/>}/>
           <Route path='/admin-controls/movies/:id' element={<UpdateMovieForm/>}/>
           <Route path='/users/login' element={<LoginForm/>}/> 
+          <Route path='/users/forgot-password' element={<ForgotPasswordForm/>}/>
+          <Route path='/users/reset-password/OTP/:email' element={<OTPForm/>}/>
+          <Route path='/users/reset-password' element={<ResetPasswordForm/>}/>
+          <Route path='/users/myMovies' element={<MyMovies/>}/>
+          <Route path='/users/admin-user-movies' element={<AdminUserMovies/>}/>
+          <Route path='*' element={<h1>404 Not Found</h1>}/>
         </Routes>
       </BrowserRouter>
     </>
