@@ -5,7 +5,7 @@ function MoneyButton(){
     const [amount, setAmount] = useState(0);
 
     let updateAmount = (e: SyntheticEvent) => {
-        setAmount(parseInt((e.target as HTMLInputElement).value))
+        setAmount(parseFloat((e.target as HTMLInputElement).value))
     }  
     
     const handleButtonClick = async () => {
