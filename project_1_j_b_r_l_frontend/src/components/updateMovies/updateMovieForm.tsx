@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { getUsername } from '../helpers/username';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './updateMovieForm.css';
 
@@ -37,11 +37,8 @@ function UpdateMovieForm() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const username = getUsername();
-        const headers = {
-            'Content-Type': 'application/json',
-            'user': username
-        };
+      
+       
 
         try {
             await axios.put(`http://localhost:8080/movies/${id}`, {
@@ -50,7 +47,7 @@ function UpdateMovieForm() {
                 description: description,
                 url: url,
                 snapshoturl: snapshot
-            }, { headers });
+            }, { withCredentials: true});
 
             alert(`${movieTitle} has been updated successfully!`);
             navigate('/');

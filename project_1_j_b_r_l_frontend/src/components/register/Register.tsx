@@ -50,15 +50,7 @@ function Register() {
       isAdmin: isAdmin
     }
     console.log(newUser)
-    let response = await axios.post('http://localhost:8080/users/register', newUser)
-      .then((response) => {
-        localStorage.setItem('user', response.data.username)
-        console.log(response.status)
-        return response
-      })
-      .catch((error) => {
-        localStorage.removeItem('user')
-        return error.response
+   
      let response = await axios.post('http://localhost:8080/users/register', newUser, {withCredentials: true})
      .then((response) => {
             console.log(response.status)
