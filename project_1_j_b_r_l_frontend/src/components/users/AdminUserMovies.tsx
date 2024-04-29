@@ -28,7 +28,7 @@ function AdminUserMovies() {
 
     let checkAdmin = () => {
         if(localStorage.getItem("admin") === "false") {
-            navigate("/users/login")
+            navigate("/users/myMovies")
         }
     }
 
