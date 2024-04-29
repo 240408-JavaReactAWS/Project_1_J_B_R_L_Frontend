@@ -63,14 +63,19 @@ function ResetPasswordForm() {
 
   return (
     <div className='form-outer-container'>
-        <h1>Reset Password</h1>
-        <div className='alert-container'></div>
-        <form className='form-inner-container'>
-            <label>Password</label>
-            <input onChange={setPasswordHandler} type="password" name="password" />
-            <label>Confirm Password</label>
-            <input onChange={setConfirmPasswordHandler} type="password" name="confirm-password" />
-            <button type="submit" onClick={resetPassword}>Reset Password</button>
+        
+        <form className='mb-3 form-inner-container'>
+            <h1 className="form-header">Reset Password</h1>
+            <hr />
+            <div className='alert-container'></div>
+            <p>Enter your new password. Make sure to make it larger than four characters.</p>
+            <label htmlFor='new-password'>New Password</label>
+            <input onChange={setPasswordHandler} className="form-control" id="new-password" type="password" name="password" />
+            <label htmlFor='new-password-2'>Confirm New Password</label>
+            <input onChange={setConfirmPasswordHandler} className="form-control" id="new-password-2" type="password" name="confirm-password" />
+            <div className='d-grid gap-2 submit-form-button'>
+                <button type="submit" className="btn btn-primary"onClick={resetPassword}>Reset Password</button>
+            </div>
         </form>
     </div>
   )

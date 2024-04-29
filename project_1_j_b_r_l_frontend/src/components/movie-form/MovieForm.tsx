@@ -36,12 +36,11 @@ function MovieForm() {
   }
 
   useEffect(() => {
-    let asyncCall = async () => {
+    let checkForAdminUser = async () => {
         try {
             let res = await axios.get('http://localhost:8080/users/admin', {
                 withCredentials: true
             });
-            console.log(res);
         } catch (error : any) {
             let status = error.response.status;
             if (status === 401) {
@@ -54,7 +53,7 @@ function MovieForm() {
         }
     }
 
-    asyncCall();
+    checkForAdminUser();
 }, []);
 
   // make a POST request to the server to add a movie using axios
