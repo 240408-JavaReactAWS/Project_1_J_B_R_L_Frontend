@@ -8,7 +8,7 @@ function GetMovieById() {
     const {id} = useParams()
     const [movie, setMovie] = React.useState<Movie>()
     const getMovie = () => {
-        axios.get<Movie>('http://localhost:8080/movies/'+id)
+        axios.get<Movie>('http://localhost:8080/movies/'+id, {withCredentials: true})
         .then(response => {
           setMovie(response.data)
         })
@@ -16,9 +16,9 @@ function GetMovieById() {
     }
 
     const buyMovie = () => {
-      axios.post('http://localhost:8080/movies/buy/'+id, {}, {headers: {
-                      "user": localStorage.getItem('username')
-                    }})
+      axios.post('http://localhost:8080/movies/buy/'+id, {},
+        {withCredentials: true}
+      )
       .then(response => {
         console.log(response.data)
       })
