@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function GetAllMovies() {
     const [movies, setMovies] = useState<Movie[]>([])
     const getMovies = () => {
-        axios.get<Movie[]>('http://localhost:8080/movies')
+        axios.get<Movie[]>('http://localhost:8080/movies', {withCredentials: true})
         .then(response => {
             setMovies(response.data)
         })
