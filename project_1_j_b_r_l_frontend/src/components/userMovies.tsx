@@ -32,7 +32,7 @@ const UserMovies: React.FC = () => {
         <div>
             <h1>Movie List</h1>
             {error && <p>{error}</p>}
-            <table>
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -47,7 +47,6 @@ const UserMovies: React.FC = () => {
                             <td>{movie.movieId}</td>
                             <td><Link to={'/movies/'+movie.movieId}>{movie.name}</Link></td>
                             <td>${movie.price % 1 === 0 ? movie.price.toFixed(2) : movie.price}</td>
-
                             <td>{movie.description}</td>
                             <td><img src={movie.url} alt="movie poster" width="100" height="150" /></td>
                         </tr>

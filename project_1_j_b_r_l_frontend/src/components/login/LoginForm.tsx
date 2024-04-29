@@ -1,3 +1,4 @@
+
 import React, { SyntheticEvent, useState } from "react";
 import { IUser } from "../../models/IUser";
 import axios from "axios";
@@ -38,17 +39,26 @@ function LoginForm() {
     }
     
     return (
-        <div>
-            <h1>Login</h1>
-            <form>
-                <label>Username</label>
-                <input onChange={updateUsername} type="text" name="username" />
-                <label>Password</label>
-                <input onChange={updatePassword} type="password" name="password" />
-                <button type="submit" onClick={login}>Login</button>
-            </form>
+        <div className="container d-flex justify-content-center align-items-center vh-100">
+            <div className="card">
+                <h1 className="card-header">Login</h1>
+                <div className="card-body">
+                    <form>
+                        <div className="form-group">
+                            <label>Username</label>
+                            <input onChange={updateUsername} type="text" name="username" className="form-control" />
+                        </div>
+                        <div className="form-group">
+                            <label>Password</label>
+                            <input onChange={updatePassword} type="password" name="password" className="form-control" />
+                        </div>
+                        <button type="submit" onClick={login} className="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
+
 
 export default LoginForm;
