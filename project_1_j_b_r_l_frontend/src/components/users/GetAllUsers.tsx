@@ -19,10 +19,17 @@ function GetAllUsers() {
     }
 
     let checkAdmin = () => {
-        if(localStorage.getItem("admin") === "false") {
-            navigate("/")
-        }
-        getUsers();
+        let response = axios.get('http://localhost:8080/users/admin',
+        {withCredentials: true}
+        ).then((response) => {
+            if(!response.data) {
+                navigate("/");
+            } else {
+                getUsers();
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
     }
 
     useEffect(checkAdmin, [])

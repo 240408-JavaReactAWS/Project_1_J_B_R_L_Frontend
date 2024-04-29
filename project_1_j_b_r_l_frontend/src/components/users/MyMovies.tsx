@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function MyMovies() {
     const [movies, setMovies] = useState<IMovie[]>([]);
+    const [username, setUsername] = useState<string>("");
     const navigate = useNavigate();
 
     let getMovies = async () => {
@@ -18,18 +19,26 @@ function MyMovies() {
         });}
 
     let checkLoggedIn = () => {
-        if(localStorage.getItem("username") === null) {
-            navigate("/users/login");
-        }
+        let response = axios.get('http://localhost:8080/users/session',
+        {withCredentials: true}
+        ).then((response) => {
+            if(!response.data) {
+                navigate("/users/login");
+            } else {
+                setUsername(response.data.username);
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
     }
 
     useEffect(() => {
-        getMovies();
         checkLoggedIn();
+        getMovies();
     }, []);
     return (
         <div>
-            <h1>{localStorage.getItem("username")}'s Movies</h1>
+            <h1>{username}'s Movies</h1>
             <MovieContainer movies={movies}></MovieContainer>
         </div>
     )
