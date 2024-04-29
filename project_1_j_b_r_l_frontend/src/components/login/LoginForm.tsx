@@ -37,13 +37,25 @@ function LoginForm() {
         });
     }
 
-    let checkAdmin = () => {
-        if(localStorage.getItem("admin") === "false") {
-            navigate("/")
-        }
-    }
+    let navigateTo = useNavigate();
 
-    useEffect(checkAdmin, [])
+    useEffect(() => {
+        let checkForLoggedInUser = async () => {
+            try {
+                let res = await axios.get('http://localhost:8080/users/session', {
+                    withCredentials: true
+                });
+            } catch (error : any) {
+                let status = error.response.status;
+                if (status === 401) {
+                    console.log("Session is invalid");
+                    navigateTo('/users/login');
+                }
+            }
+        }
+    
+        checkForLoggedInUser();
+    }, []);
     
     return (
         <div className="container d-flex justify-content-center align-items-center vh-100">
