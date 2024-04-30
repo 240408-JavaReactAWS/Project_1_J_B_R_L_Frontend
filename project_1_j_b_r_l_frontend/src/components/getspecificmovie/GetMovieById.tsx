@@ -36,10 +36,10 @@ function GetMovieById() {
         <div className="card-body .bg-warning.bg-gradient" style={{ fontSize: '1.2rem' }}>
           <h1 className="card-title">{movie?.name}</h1>
           <h2 className="card-text">${(movie?.price ?? 0) % 1 === 0 ? movie?.price?.toFixed(2) : movie?.price}</h2>
-          <a href={movie?.url} className='tv-style'>{movie?.url}</a> <br/>
+          {isBuySuccessful && movie?.url && <iframe width="290" height="345" src={movie?.url}></iframe>}
           <br/>
           <p className="card-text">{movie?.description}</p>
-          {!isBuySuccessful && <button onClick={buyMovie}>Buy</button>}
+          {!isBuySuccessful && <button  onClick={buyMovie} className='btn btn-success'>Buy</button>}
         </div>
           </div>
         </div>
