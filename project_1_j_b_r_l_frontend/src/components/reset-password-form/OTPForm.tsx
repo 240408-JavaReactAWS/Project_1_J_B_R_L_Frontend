@@ -27,7 +27,7 @@ function OTPForm() {
             return;
         }
         console.log(otp);
-        let res = await axios.post(`http://localhost:8080/users/${email}/verify-email/${otp}`, {},{withCredentials: true})
+        let res = await axios.post(`http://localhost:8080/users/${email}/verifyEmail/${otp}`, {},{withCredentials: true})
         .then((response) => {
             console.log(response);
             document.querySelector('.alert-container')!.innerHTML =`<div class="alert alert-success" role="alert"><strong>Well done! </strong>You hava successfully verified your account.</div>`

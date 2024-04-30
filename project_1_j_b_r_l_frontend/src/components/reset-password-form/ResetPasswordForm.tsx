@@ -15,7 +15,7 @@ function ResetPasswordForm() {
                 let validateSession = await axios.get(`http://localhost:8080/users/session`,  
                 {withCredentials: true})
                 if (validateSession.status === 401) {
-                    navigateTo(`/users/forgot-password`);
+                    navigateTo(`/users/forgotPassword`);
                 }
                 console.log(validateSession);
 
@@ -69,9 +69,9 @@ function ResetPasswordForm() {
             <hr />
             <div className='alert-container'></div>
             <p>Enter your new password. Make sure to make it larger than four characters.</p>
-            <label htmlFor='new-password'>New Password</label>
+            <label className="form-label"htmlFor='new-password'>New Password</label>
             <input onChange={setPasswordHandler} className="form-control" id="new-password" type="password" name="password" />
-            <label htmlFor='new-password-2'>Confirm New Password</label>
+            <label className="form-label" htmlFor='new-password-2'>Confirm New Password</label>
             <input onChange={setConfirmPasswordHandler} className="form-control" id="new-password-2" type="password" name="confirm-password" />
             <div className='d-grid gap-2 submit-form-button'>
                 <button type="submit" className="btn btn-primary"onClick={resetPassword}>Reset Password</button>

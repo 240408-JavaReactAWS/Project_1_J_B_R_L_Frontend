@@ -19,7 +19,7 @@ function AdminControls() {
                     navigateTo('/users/login');
                 } else if (status === 403){
                     console.log("Unauthorized access");
-                    navigateTo('/');
+                    navigateTo('/admin-controls');
                 }
             }
         }
