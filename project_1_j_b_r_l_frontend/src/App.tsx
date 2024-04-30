@@ -19,6 +19,7 @@ import GetAllUsers from './components/users/GetAllUsers';
 import MoneyButton from './components/moneybutton/MoneyButton';
 import FrontPage from './components/frontpage/FrontPage';
 import AdminControls from './components/admin-controls/AdminControls';
+import './Main.css';
 
 
 function App() {
@@ -26,15 +27,14 @@ function App() {
 
   return (
     <>
-
+      
       <BrowserRouter>
         <Nav/>
         <Routes>
-          <Route path="/movies" Component={UserMovies}></Route>
+          <Route path="/admin-controls/movies" Component={UserMovies}></Route>
           <Route path="/" Component={FrontPage}></Route>
           <Route path='/users/register' element={<Register/>}/>
-          {/* <Route path='/movies' element={<GetAllMovies/>}/> */}
-          <Route path='/' element={<LoginForm/>}/>
+          <Route path='/movies' element={<GetAllMovies/>}/>
           <Route path='/movies/:id' element={<GetMovieById/>}/>
           <Route path='/admin-controls' element={<AdminControls/>}/>
           <Route path='/admin-controls/createmovie' element={<MovieForm/>}/>
@@ -45,7 +45,7 @@ function App() {
           <Route path='/users/reset-password' element={<ResetPasswordForm/>}/>
           <Route path='/users/myMovies' element={<MyMovies/>}/>
           <Route path='/admin-controls/user-movies' element={<AdminUserMovies/>}/>
-          <Route path='/users/admin-users' element={<GetAllUsers/>}/>
+          <Route path='/admin-controls/users' element={<GetAllUsers/>}/>
           <Route path='/users/addMoney' element={<MoneyButton/>}/>
           <Route path='*' element={<h1>404 Not Found</h1>}/>
         </Routes>

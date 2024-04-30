@@ -28,19 +28,19 @@ function AdminControls() {
     }, []);
 
   return (
-    <>
+    <div className="movie-form">
     <h1 className="movie-form-header rounded-2">AdminControls</h1>
     <div className="form-outer-container" >
         
         <div className="list-group form-inner-container">
             <Link to="/admin-controls/createmovie" className="list-group-item list-group-item-action list-group-item-primary admin-selection">Create New Movie</Link>
-            <Link to="/movies" className="list-group-item list-group-item-action list-group-item-primary admin-selection">Edit Movies</Link>
+            <Link to="/admin-controls/movies" className="list-group-item list-group-item-action list-group-item-primary admin-selection">Edit Movies</Link>
             <Link to="/admin-controls/users" className="list-group-item list-group-item-action list-group-item-primary admin-selection">User Records</Link>
             <Link to="/admin-controls/user-movies" className="list-group-item list-group-item-action list-group-item-primary admin-selection">Purchased Movies Records</Link>
         </div>
         
     </div>
-    </>
+    </div>
   )
 }
 

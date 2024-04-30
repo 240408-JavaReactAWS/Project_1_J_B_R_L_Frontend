@@ -5,7 +5,7 @@ import Movie from "../movie/Movie";
 function MovieContainer(props: { movies: IMovie[] }) {
 
     return (
-        <div className="movie-container">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
             {props.movies.map((movieMap) => (
                 <Movie key={movieMap.movieId} movie={movieMap}></Movie>
             ))}

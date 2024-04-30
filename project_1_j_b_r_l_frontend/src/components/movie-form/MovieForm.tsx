@@ -2,7 +2,9 @@ import React, {MouseEvent, useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import './MovieForm.css';
+import { IMovie } from "../../models/IMovie";
 import { useNavigate } from 'react-router-dom';
+
 
 function MovieForm() {
   const [movieTitle, setMovieTitle] = React.useState('');
@@ -61,15 +63,14 @@ function MovieForm() {
     //I need to prevent the default behavior of the form while also making sure the required inputs are filled out
     e.preventDefault();
     const form = document.getElementById('movie-form') as HTMLFormElement;
+
     if (form.checkValidity()) {
- 
-      let res = await axios.post('http://localhost:8080/movies',{
-      name: movieTitle,
+      let res = await axios.post('http://localhost:8080/movies',
+      {name: movieTitle,
       price: price,
       description: description,
       url: url,
-      snapshoturl: snapshot
-      }, {withCredentials: true}).then((response) => {
+      snapshot: snapshot}, {withCredentials: true}).then((response) => {
       console.log(response);
       document.querySelector('.alert-container')!.innerHTML =`<div class="alert alert-success" role="alert"><strong>Well done! </strong>${movieTitle} has been added to the selection successfully!</div>`
       //clear the form
@@ -78,7 +79,7 @@ function MovieForm() {
       .catch((error) => {
       console.log(error);
       document.querySelector('.alert-container')!.innerHTML = 
-              `<div class="alert alert-danger" role="alert"><strong>Oh snap! </strong>${error.message}</div>`;
+              `<div class="alert alert-danger" role="alert"><strong>Oh snap! </strong>${error.response.data}</div>`;
       });
     } else {
       form.classList.add('was-validated');
@@ -86,7 +87,7 @@ function MovieForm() {
   }
   
   return (
-    <form className = "row g-3 needs-validation" id = "movie-form" >
+    <form className = "row g-3 needs-validation movie-form" id = "movie-form" >
         <h2 className="rounded-2 movie-form-header">Add a Movie</h2>
         <div className="alert-container">
         </div>

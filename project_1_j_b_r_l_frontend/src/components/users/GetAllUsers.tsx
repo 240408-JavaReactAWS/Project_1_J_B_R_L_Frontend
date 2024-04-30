@@ -36,7 +36,7 @@ function GetAllUsers() {
 
     return (
         <div>
-            <h1>All Users</h1>
+            <h1 className="movie-form-header">All Users</h1>
             <table className="table">
                 <thead>
                     <tr>

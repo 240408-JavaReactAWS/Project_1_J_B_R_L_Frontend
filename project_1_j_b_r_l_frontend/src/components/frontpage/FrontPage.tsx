@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './FrontPage.css';
+//import svg from '../../StreamFlix.svg';
+import sflogo from '../../SF-logo-no-bg.png';
 
 const FrontPage: React.FC = () => {
     let navigateTo = useNavigate();
@@ -25,6 +27,8 @@ const FrontPage: React.FC = () => {
     }, []);
     return (
         <div className='center-div'>
+            <div className='front-page-container'>
+                <img src={sflogo} alt="StreamFlix logo" height="150" width="150" />
                 <h1>Welcome to StreamFlix!</h1>
                 <p id='watch'>Watch Everything*</p>
                 <p id="register">Please register or login to continue.</p>
@@ -33,6 +37,7 @@ const FrontPage: React.FC = () => {
                 <Link to="/users/login"><button>Login</button></Link>
             </div>
             <p id="disclaimer">*Not actually everything</p>
+            </div>
         </div>
     );
 };

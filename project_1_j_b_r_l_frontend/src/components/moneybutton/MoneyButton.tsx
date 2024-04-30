@@ -30,8 +30,8 @@ function MoneyButton(){
 };
 
     return (
-        <div>
-            <label htmlFor="amount">Amount:</label>
+        <div className='movie-form'>
+            <label htmlFor="amount" className ="movie-label">Amount:</label>
             <input onChange={updateAmount} type="number" id="amount" name="amount" />
             <button onClick={handleButtonClick}>
                 Add Money

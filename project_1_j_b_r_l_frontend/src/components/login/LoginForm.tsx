@@ -73,6 +73,7 @@ function LoginForm() {
                         </div>
                         <button type="submit" onClick={login} className="btn btn-primary">Login</button>
                     </form>
+                    <p><Link to="/users/forgot-password" className="link-underline-info">Forgot Password?</Link></p>
                 </div>
             </div>
         </div>

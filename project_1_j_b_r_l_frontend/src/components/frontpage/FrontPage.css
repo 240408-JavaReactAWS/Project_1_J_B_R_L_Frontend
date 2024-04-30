@@ -5,6 +5,21 @@
     height: 100vh;
     flex-direction: column;
 }
+.front-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #040714;
+    color: aliceblue;
+    opacity: 0.96;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 2px;
+    border-color: #040714;
+}
+
 
 #watch {
     font-size: 20pt;

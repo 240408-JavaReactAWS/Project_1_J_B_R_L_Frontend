@@ -39,7 +39,7 @@ function ForgotPasswordForm() {
             <div className='alert-container'></div>
             <p>Don't worry! It happens to the best of us.</p>
             <p>Enter your email address and we'll send you a link with instructions on how to reset your password.</p>
-            <input type="email" onChange={setEmailHandler} className="form-control" id="email" placeholder='name@example.com' />
+            <input type="email" onChange={setEmailHandler} className="form-control form-input-box" id="email" placeholder='name@example.com' />
             <div className='d-grid gap-2'>
                 <button type="submit" onClick={(e) => sendEmail(e)} className="btn btn-primary" id="email-button">Send Email</button>
             </div>
