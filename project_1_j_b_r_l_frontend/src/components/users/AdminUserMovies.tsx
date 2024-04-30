@@ -26,13 +26,29 @@ function AdminUserMovies() {
         });
     }
 
-    let checkAdmin = () => {
-        if(localStorage.getItem("admin") === "false") {
-            navigate("/users/myMovies")
-        }
-    }
 
-    useEffect(checkAdmin, [])
+    let navigateTo = useNavigate();
+
+    useEffect(() => {
+        let checkForAdminUser = async () => {
+            try {
+                let res = await axios.get('http://localhost:8080/users/admin', {
+                    withCredentials: true
+                });
+            } catch (error : any) {
+                let status = error.response.status;
+                if (status === 401) {
+                    console.log("Session is invalid");
+                    navigateTo('/users/login');
+                } else if (status === 403){
+                    console.log("Unauthorized access");
+                    navigateTo('/movies');
+                }
+            }
+        }
+    
+        checkForAdminUser();
+    }, []);
 
     return (
         <div>

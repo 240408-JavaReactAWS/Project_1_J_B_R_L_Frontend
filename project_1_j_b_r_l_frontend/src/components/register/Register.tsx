@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './Register.css'
 import { useNavigate } from 'react-router-dom'
@@ -98,6 +98,7 @@ function Register() {
           <label htmlFor='isAdminInput'>Is Admin:</label>
           <input id='isAdminInput' type='checkbox' onClick={handleIsAdminChange} />
         </div>
+
         <button onClick={handleRegister}>Register!</button>
       </div>
       <div>

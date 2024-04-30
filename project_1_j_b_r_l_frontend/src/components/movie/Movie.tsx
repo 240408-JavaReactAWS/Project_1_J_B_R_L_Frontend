@@ -1,5 +1,6 @@
 import React from "react";
 import { IMovie } from "../../models/IMovie";
+import { Link } from "react-router-dom";
 //import "./Movie.css";
 
 interface IMovieProps {
@@ -9,8 +10,10 @@ interface IMovieProps {
 function Movie(props: IMovieProps) {
     return (
         <div className="movie">
-            <h2>{props.movie.name}</h2>
-            <p>Price: {props.movie.price}</p>
+            <Link to={'/movies/'+ props.movie.movieId}>{props.movie.name}</Link>
+            <h3>Description</h3>
+            <p>{props.movie.description}</p>
+            <p>Price: ${props.movie.price}</p>
         </div>
     )
 }

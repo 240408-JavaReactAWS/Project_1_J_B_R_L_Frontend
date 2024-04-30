@@ -18,7 +18,7 @@ const Nav: React.FC = () => {
                     <Link className="nav-link" to="/movies">Movie List</Link>
                 </li> */}
                 <li className="nav-item">
-                  <Link to="register"className="nav-link">Register</Link>
+                  <Link to="users/register"className="nav-link">Register</Link>
                 </li>
                 
                 <li className="nav-item">
@@ -30,7 +30,15 @@ const Nav: React.FC = () => {
                 </li>
 
                 <li className="nav-item">
+                  <Link className="nav-link" to="/users/addMoney">Add Money</Link>
+                </li>
+
+                <li className="nav-item">
                   <Link className="nav-link" to="/users/admin-user-movies">(Admin) Get Users Movies</Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/users/admin-users">(Admin) Get Users</Link>
                 </li>
 
                 <li className="nav-item">
