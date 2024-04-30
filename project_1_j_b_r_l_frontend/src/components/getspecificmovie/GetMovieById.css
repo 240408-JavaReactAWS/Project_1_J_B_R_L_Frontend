@@ -1,6 +1,6 @@
 .tv-style {
     display: inline-block;
-    width: 200px; /* Width of the TV */
+    width: 290px; /* Width of the TV */
     height: 150px; /* Height of the TV */
     background-color: #000; /* Color of the TV */
     border-radius: 15px; /* Rounded corners for the TV screen */
