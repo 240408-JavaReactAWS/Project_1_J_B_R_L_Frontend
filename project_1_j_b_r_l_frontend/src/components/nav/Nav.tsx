@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import { Link } from 'react-router-dom';
+import UserDropdown from '../user-dropdown/UserDropdown';
 
 const Nav: React.FC = () => {
     
@@ -43,6 +44,9 @@ const Nav: React.FC = () => {
 
                 <li className="nav-item">
                   <Link className="nav-link" to="/users/login">Login</Link>
+                </li>
+                <li className="nav-item">
+                  <UserDropdown />
                 </li>
             </ul>
         </nav>
