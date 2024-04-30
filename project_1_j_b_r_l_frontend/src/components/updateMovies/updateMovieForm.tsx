@@ -26,6 +26,7 @@ function UpdateMovieForm() {
                 setPrice(price);
                 setDescription(description);
                 setURL(url);
+                setSnapshot(snapshot);
             
             } catch (error) {
                 console.error('Failed to fetch movie', error);

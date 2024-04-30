@@ -33,8 +33,8 @@ const FrontPage: React.FC = () => {
                 <p id='watch'>Watch Everything*</p>
                 <p id="register">Please register or login to continue.</p>
             <div>
-                <Link to="/users/register"><button>Register</button></Link>
-                <Link to="/users/login"><button>Login</button></Link>
+                <Link to="/users/register"><button className="btn btn-primary">Register</button></Link>
+                <Link to="/users/login"><button className="btn btn-primary">Login</button></Link>
             </div>
             <p id="disclaimer">*Not actually everything</p>
             </div>
