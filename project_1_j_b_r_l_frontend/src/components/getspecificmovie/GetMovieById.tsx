@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import './GetMovieById.css';
 import { useParams } from 'react-router-dom'
 import { Movie } from '../../models/movie'
@@ -7,6 +7,7 @@ import { Movie } from '../../models/movie'
 function GetMovieById() {
     const {id} = useParams()
     const [movie, setMovie] = React.useState<Movie>()
+    const [isBuySuccessful, setIsBuySuccessful] = useState(false);
     const getMovie = () => {
         axios.get<Movie>('http://localhost:8080/movies/'+id, {withCredentials: true})
         .then(response => {
@@ -21,24 +22,30 @@ function GetMovieById() {
       )
       .then(response => {
         console.log(response.data)
+        setIsBuySuccessful(true);
+        window.alert('Movie purchased successfully!')
       })
       .catch((error) => {console.log(error)})
+
+      setIsBuySuccessful(true);
     }
       React.useEffect(getMovie, [])
-    return (
-      <div className="container">
-      <div className="card" style={{ width: '18rem' }}>
-      <div className="card-body">
-      <h1 className="card-title">{movie?.name}</h1>
-      <h2 className="card-text">${(movie?.price ?? 0) % 1 === 0 ? movie?.price?.toFixed(2) : movie?.price}</h2>
-      <a href={movie?.url} className='tv-style'>{movie?.url}</a> <br/>
-      <br/>
-      <p className="card-text">{movie?.description}</p>
-        <button onClick={buyMovie}>Buy</button>
-      </div>
-      </div>
-      </div>
-    )
+      return (
+        <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <div className="card bg-warning bg-gradient" style={{ width: '20rem' }}>
+        <div className="card-body .bg-warning.bg-gradient" style={{ fontSize: '1.2rem' }}>
+          <h1 className="card-title">{movie?.name}</h1>
+          <h2 className="card-text">${(movie?.price ?? 0) % 1 === 0 ? movie?.price?.toFixed(2) : movie?.price}</h2>
+          <a href={movie?.url} className='tv-style'>{movie?.url}</a> <br/>
+          <br/>
+          <p className="card-text">{movie?.description}</p>
+          {!isBuySuccessful && <button onClick={buyMovie}>Buy</button>}
+        </div>
+          </div>
+        </div>
+      )
 }
 
 export default GetMovieById
+
+
