@@ -17,6 +17,7 @@ function Register() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   // const [isAdmin, setIsAdmin] = useState(false)
+  const [className, setClassName] = useState('empty');
   const [error, setError] = useState('')
   const navigate = useNavigate()
 
@@ -60,7 +61,8 @@ function Register() {
       .catch((error) => {
         localStorage.removeItem('user')
         localStorage.removeItem('admin')
-        alert(`Cannot register new user: ${error.response.data}`);
+        // alert(`Cannot register new user: ${error.response.data}`);
+        setClassName('error');
         return error.response
       })
     if (response.status === 201) {
@@ -81,6 +83,7 @@ function Register() {
         <div className='card'>
           <h1 className="card-header">Register</h1>
           <div className="card-body">
+          <h4 className={className}>{error}</h4> 
             <div className="form-group">
               <label htmlFor='usernameInput'>Username:</label>
               <input id='usernameInput' type='text' onChange={handleUsernameChange} />
@@ -104,9 +107,7 @@ function Register() {
             <button className="btn btn-primary" onClick={handleRegister} type='submit'>Register!</button>
           </div>
         </div>
-        {/* <div>
-        <span>{error}</span>
-      </div> */}
+        
       </div>
       
     </div>
