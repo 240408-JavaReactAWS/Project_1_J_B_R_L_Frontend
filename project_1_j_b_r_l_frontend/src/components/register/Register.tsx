@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import './Register.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { useNavigate } from 'react-router-dom'
 
 export interface IRegisterProps {
@@ -8,7 +8,7 @@ export interface IRegisterProps {
   password: string,
   name: string,
   email: string,
-  isAdmin: boolean
+  // admin: boolean
 }
 
 function Register() {
@@ -16,7 +16,7 @@ function Register() {
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [isAdmin, setIsAdmin] = useState(false)
+  // const [isAdmin, setIsAdmin] = useState(false)
   const [error, setError] = useState('')
   const navigate = useNavigate()
 
@@ -37,9 +37,9 @@ function Register() {
     setEmail(e.target.value)
   }
 
-  const handleIsAdminChange = () => {
-    setIsAdmin(!isAdmin)
-  }
+  // const handleIsAdminChange = () => {
+  //   setIsAdmin(!isAdmin)
+  // }
 
   const handleRegister = async () => {
     const newUser: IRegisterProps = {
@@ -47,7 +47,7 @@ function Register() {
       password: password,
       name: name,
       email: email,
-      isAdmin: isAdmin
+      // admin: isAdmin
     }
     console.log(newUser)
    
@@ -60,6 +60,7 @@ function Register() {
       .catch((error) => {
         localStorage.removeItem('user')
         localStorage.removeItem('admin')
+        alert(`Cannot register new user: ${error.response.data}`);
         return error.response
       })
     if (response.status === 201) {
@@ -75,35 +76,39 @@ function Register() {
   }
 
   return (
-    <div className='registerForm'>
+    <div className='container d-flex justify-content-center align-items-center vh-100'>
       <div>
-        <div className='form-group'>
-        <h1>Register</h1>
-          <label htmlFor='usernameInput'>Username:</label>
-          <input id='usernameInput' type='text' onChange={handleUsernameChange} />
+        <div className='card'>
+          <h1 className="card-header">Register</h1>
+          <div className="card-body">
+            <div className="form-group">
+              <label htmlFor='usernameInput'>Username:</label>
+              <input id='usernameInput' type='text' onChange={handleUsernameChange} />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='passwordInput'>Password:</label>
+              <input id='passwordInput' type='password' onChange={handlePasswordChange} />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='nameInput'>Name:</label>
+              <input id='nameInput' type='text' onChange={handleNameChange} />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='emailInput'>Email:</label>
+              <input id='emailInput' type='text' onChange={handleEmailChange} />
+            </div>
+            {/* <div className='form-group'>
+              <label htmlFor='isAdminInput'>Is Admin:</label>
+              <input id='isAdminInput' type='checkbox' onClick={handleIsAdminChange} />
+            </div> */}
+            <button className="btn btn-primary" onClick={handleRegister} type='submit'>Register!</button>
+          </div>
         </div>
-        <div className='form-group'>
-          <label htmlFor='passwordInput'>Password:</label>
-          <input id='passwordInput' type='password' onChange={handlePasswordChange} />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='nameInput'>Name:</label>
-          <input id='nameInput' type='text' onChange={handleNameChange} />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='emailInput'>Email:</label>
-          <input id='emailInput' type='text' onChange={handleEmailChange} />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='isAdminInput'>Is Admin:</label>
-          <input id='isAdminInput' type='checkbox' onClick={handleIsAdminChange} />
-        </div>
-
-        <button onClick={handleRegister}>Register!</button>
-      </div>
-      <div>
+        {/* <div>
         <span>{error}</span>
+      </div> */}
       </div>
+      
     </div>
   )
 }
