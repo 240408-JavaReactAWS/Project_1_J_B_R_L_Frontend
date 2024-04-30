@@ -17,7 +17,6 @@ function UserDropdown() {
 
     let setExpandedHandler = () => {
         setExpanded(!expanded);
-        console.log(expanded);
     }
 
     useEffect(() => {
@@ -28,10 +27,8 @@ function UserDropdown() {
                 if (validateSession.status === 401) {
                     setLoggedIn(false);
                     setAdmin(false);
-                    console.log("Session is invalid");
                 } else {
                     setLoggedIn(true);
-                    console.log("Session is valid");
                     setAdmin(validateSession.data.admin);
                 }
 
@@ -87,7 +84,7 @@ function UserDropdown() {
                 Sign Up
             </button>
             <ul className="dropdown-menu" aria-labelledby="signInDropdownMenu">
-                <li><Link to="register"className="dropdown-item">Register</Link></li>
+                <li><Link to="/users/register"className="dropdown-item">Register</Link></li>
                 <li><Link className="dropdown-item" to="/users/login">Login</Link></li>
             </ul>
         </div>

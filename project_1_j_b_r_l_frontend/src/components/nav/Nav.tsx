@@ -12,38 +12,9 @@ const Nav: React.FC = () => {
                 <li className="nav-item">
                     <Link className="nav-link" to="/">Home</Link>
                 </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/admin-controls/createmovie">Add Movie</Link>
-                </li>
-                {/* <li className="nav-item">
-                    <Link className="nav-link" to="/movies">Movie List</Link>
-                </li> */}
-                <li className="nav-item">
-                  <Link to="users/register"className="nav-link">Register</Link>
-                </li>
                 
                 <li className="nav-item">
                   <Link className="nav-link" to="movies">All Movies</Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link className="nav-link" to="/users/myMovies">My Movies</Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link className="nav-link" to="/users/addMoney">Add Money</Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link className="nav-link" to="/users/admin-user-movies">(Admin) Get Users Movies</Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link className="nav-link" to="/users/admin-users">(Admin) Get Users</Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link className="nav-link" to="/users/login">Login</Link>
                 </li>
                 <li className="nav-item">
                   <UserDropdown />
