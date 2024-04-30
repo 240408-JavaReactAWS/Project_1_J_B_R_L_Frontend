@@ -37,8 +37,8 @@ function UpdateMovieForm() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-      
-       
+    
+    
 
         try {
             await axios.put(`http://localhost:8080/movies/${id}`, {

@@ -3,5 +3,6 @@ export interface IMovie {
     name: string;
     price: number;
     url: string;
+    snapshot: string;
     description: string;
 }

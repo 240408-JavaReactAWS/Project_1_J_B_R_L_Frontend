@@ -2,6 +2,11 @@ nav{
     /* background-color: blueviolet; */
   
     border-bottom: 2px solid black;
+    background-color: #032230;
+}
+.navbar{
+    background: #032230;
+
 }
 
 nav ul{
