@@ -2,10 +2,13 @@ import React, { SyntheticEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './LoginForm.css';
 
 function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [className, setClassName] = useState('empty');
+    const [text, setText] = useState('');
     const navigate = useNavigate();
 
     let updateUsername= (e: SyntheticEvent) => {
@@ -34,6 +37,8 @@ function LoginForm() {
             localStorage.removeItem("username");
             localStorage.removeItem("admin");
             console.error(error);
+            setClassName('error');
+            setText('Invalid username or password');
         });
     }
 
@@ -63,6 +68,7 @@ function LoginForm() {
                 <h1 className="card-header">Login</h1>
                 <div className="card-body">
                     <form>
+                        <h4 className={className}>{text}</h4>
                         <div className="form-group">
                             <label>Username</label>
                             <input onChange={updateUsername} type="text" name="username" className="form-control" />
