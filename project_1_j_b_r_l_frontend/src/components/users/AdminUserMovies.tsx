@@ -71,7 +71,9 @@ function AdminUserMovies() {
                 <button type="submit" onClick={getMovies}>Get Movies</button>
             </form>
             <h2 className={className}>{text}</h2>
+            <div style={{ width: '100%' }}>
             {submitted && <MovieContainer movies={movies}></MovieContainer>}
+            </div>
         </div>
     )
 }
