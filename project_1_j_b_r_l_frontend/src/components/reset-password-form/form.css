@@ -7,7 +7,9 @@
     border-color: #040714;
 }
 .form-inner-container {
-    background-color: aliceblue;
+    background-color: #040714;
+    color: aliceblue;
+    opacity: 0.94;
     padding: 20px;
     margin-top:20px;
     width: 450px;
@@ -17,4 +19,7 @@
 }
 #email-button {
     margin-top: 20px;
+}
+.form-input-box {
+    opacity: 1;
 }

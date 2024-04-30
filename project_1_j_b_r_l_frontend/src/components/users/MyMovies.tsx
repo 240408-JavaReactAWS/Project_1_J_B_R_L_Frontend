@@ -38,7 +38,7 @@ function MyMovies() {
     }, []);
     return (
         <div>
-            <h1>{username}'s Movies</h1>
+            <h1 className="rounded-2 movie-form-header">{username}'s Movies</h1>
             <MovieContainer movies={movies}></MovieContainer>
         </div>
     )
