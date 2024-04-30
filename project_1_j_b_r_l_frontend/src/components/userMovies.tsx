@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import DeleteButton from './deletebutton/DeleteButton';
+import UpdateMovieForm from './updateMovies/updateMovieForm';
 
 interface Movie {
     movieId: number;
@@ -88,6 +89,8 @@ const UserMovies: React.FC = () => {
                             <td>{movie.description}</td>
                             <td><img src={movie.url} alt="movie poster" width="100" height="150" /></td>
                             <td><DeleteButton id={movie.movieId} isAdmin={isAdmin} setMovies={setMovies}/></td>
+                            {/* create a button that updates a movie */}
+                           { isAdmin && <td><button className='btn btn-warning' onClick={() => navigateTo(`/admin-controls/movies/${movie.movieId}`)}>Update</button></td>}
                         </tr>
                     ))}
                 </tbody>
