@@ -3,11 +3,14 @@ import { IMovie } from "../../models/IMovie";
 import MovieContainer from "../movie-container/MovieContainer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './AdminUserMovies.css';
 
 function AdminUserMovies() {
     const [movies, setMovies] = useState<IMovie[]>([]);
     const [userId, setUserId] = useState<number>(0);
     const [submitted, setSubmitted] = useState<boolean>(false);
+    const [text, setText] = useState<string>("");
+    const [className, setClassName] = useState<string>("empty");
     const navigate = useNavigate();
     
     let updateUserId = (e: SyntheticEvent) => {
@@ -19,9 +22,18 @@ function AdminUserMovies() {
         let response = await axios.get(`http://localhost:8080/users/admin/${userId}`, 
         {withCredentials: true}
         ).then((response) => {
+            setClassName("empty");
+            setText("");
+            if (response.data.length === 0) {
+                setText("User has no movies");
+                setClassName("error");
+            }
             setMovies(response.data);
             setSubmitted(true);
         }).catch((error) => {
+            setText("User not found or Invalid ID");
+            setClassName("error");
+            setMovies([]);
             console.error(error);
         });
     }
@@ -51,13 +63,14 @@ function AdminUserMovies() {
     }, []);
 
     return (
-        <div>
+        <div className="adminGetUserMovies">
             <h1>Get a Users Purchased Movies</h1>
             <form>
                 <label>UserId</label>
                 <input onChange={updateUserId} type="text" name="userid" />
                 <button type="submit" onClick={getMovies}>Get Movies</button>
             </form>
+            <h2 className={className}>{text}</h2>
             {submitted && <MovieContainer movies={movies}></MovieContainer>}
         </div>
     )

@@ -14,6 +14,11 @@ function MoneyButton(){
     const handleButtonClick = async (e: SyntheticEvent) => {
         // setAmount(Number((document.getElementById('amount') as HTMLInputElement).value));
         e.preventDefault();
+        if (!amount) {
+            setClassName('failure');
+            setText('Please enter a valid amount');
+            return;
+        }
 
         try {
         const response = await axios.patch('http://localhost:8080/users/addMoney', {balance: amount},
@@ -43,7 +48,7 @@ function MoneyButton(){
     return (
         <div className='movie-form'>
             <label htmlFor="amount" className ="movie-label">Amount:</label>
-            <input onChange={updateAmount} value={amount} type="number" id="amount" name="amount" />
+            <input onChange={updateAmount} value={amount} type="number" id="amount" name="amount"/>
             <button onClick={handleButtonClick}>
                 Add Money
             </button>
