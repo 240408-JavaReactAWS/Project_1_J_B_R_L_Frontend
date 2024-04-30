@@ -15,12 +15,15 @@ function ResetPasswordForm() {
                 let validateSession = await axios.get(`http://localhost:8080/users/session`,  
                 {withCredentials: true})
                 if (validateSession.status === 401) {
-                    navigateTo(`/users/forgotPassword`);
+                    navigateTo(`/`);
                 }
                 console.log(validateSession);
 
-            } catch (error) {
+            } catch (error: any) {
                 console.error(error);
+                if (error.response.status === 401) {
+                    navigateTo(`/`);
+                }
             }
         }
         asyncCall();
@@ -47,7 +50,7 @@ function ResetPasswordForm() {
             document.querySelector('.alert-container')!.innerHTML =`<div class="alert alert-danger" role="alert"><strong>Oh no! </strong>Passwords do not match.</div>`
             return;
         }
-        let res = await axios.patch(`http://localhost:8080/users/reset-password`, {
+        let res = await axios.patch(`http://localhost:8080/users/resetPassword`, {
             password: password
         }, {withCredentials: true})
         .then((response) => {
