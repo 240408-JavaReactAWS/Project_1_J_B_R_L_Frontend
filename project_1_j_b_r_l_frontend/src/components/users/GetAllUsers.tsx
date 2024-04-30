@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { IUser } from '../../models/IUser';
 import axios from 'axios';
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 function GetAllUsers() {
     const [users, setUsers] = useState<IUser[]>([]);
@@ -13,6 +14,18 @@ function GetAllUsers() {
         {withCredentials: true}
         ).then((response) => {
             setUsers(response.data);
+        }).catch((error) => {
+            console.error(error);
+        });
+    }
+
+    let addAdmin = async (id: number) => {
+        let response = await axios.patch(`http://localhost:8080/users/admin/setAdmin/${id}`, {},
+        {withCredentials: true}
+        ).then((response) => {
+            document.getElementById(`admin-status${id}`)!.innerHTML = "true";
+            document.getElementById(`button${id}`)!.setAttribute("disabled", "true");
+            //setUpdate(!update);
         }).catch((error) => {
             console.error(error);
         });
@@ -46,6 +59,7 @@ function GetAllUsers() {
                         <th>Email</th>
                         <th>Balance</th>
                         <th>Admin</th>
+                        <th>Set Admin</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,7 +71,8 @@ function GetAllUsers() {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>${user.balance}</td>
-                                <td>{user.admin ? "true" : "false"}</td>
+                                <td id={`admin-status${user.userId}`}>{user.admin ? "true" : "false"}</td>
+                                <td>{!user.admin&&<button id={`button${user.userId}`} className="btn btn-primary" type="button" onClick={() => addAdmin(user.userId)}>Add</button>}</td>
                             </tr>
                         )
                     })}

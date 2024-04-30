@@ -18,7 +18,7 @@ function ForgotPasswordForm() {
             document.querySelector('.alert-container')!.innerHTML =`<div class="alert alert-danger" role="alert"><strong>Oh no! </strong>Please enter an email address.</div>`
             return;
         }
-        let res = await axios.post(`http://localhost:8080/users/${email}/forgot-password`)
+        let res = await axios.post(`http://localhost:8080/users/${email}/forgotPassword`)
         .then((response) => {
             console.log(response);
             document.querySelector('.alert-container')!.innerHTML =`<div class="alert alert-success" role="alert"><strong>Well done! </strong>${response.data}</div>`

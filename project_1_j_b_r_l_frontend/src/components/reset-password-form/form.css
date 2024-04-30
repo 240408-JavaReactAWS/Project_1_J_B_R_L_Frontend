@@ -23,3 +23,9 @@
 .form-input-box {
     opacity: 1;
 }
+.form-label {
+    font-family: Avenir-Roman, sans-serif;
+    font-size: 1.2em;
+    color: #f9f9f9;
+    margin-top: 10px;
+}
