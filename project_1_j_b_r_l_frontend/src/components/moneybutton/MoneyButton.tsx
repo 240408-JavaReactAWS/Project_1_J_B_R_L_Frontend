@@ -73,7 +73,7 @@ function MoneyButton(){
         <div className='movie-form'>
             <label htmlFor="amount" className ="movie-label">Amount: {balance}</label>
             <input onChange={updateAmount} value={amount} type="number" id="amount" name="amount"/>
-            <button onClick={handleButtonClick}>
+            <button onClick={handleButtonClick} className="btn btn-primary">
                 Add Money
             </button>
             <h2 className={className}>{text}</h2>

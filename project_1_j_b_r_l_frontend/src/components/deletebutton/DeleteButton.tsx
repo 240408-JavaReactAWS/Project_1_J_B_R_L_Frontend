@@ -33,7 +33,7 @@ function DeleteButton(props: DeleteButtonProps) {
         });
 }
     return (
-        props.isAdmin ? <button onClick={handleButtonClick}>Delete Movie</button>:null
+        props.isAdmin ? <button onClick={handleButtonClick} className="btn btn-primary">Delete Movie</button>:null
       
     )
 }
