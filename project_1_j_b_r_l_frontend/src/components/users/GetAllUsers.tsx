@@ -19,6 +19,16 @@ function GetAllUsers() {
         });
     }
 
+    let compare = (a: IUser, b: IUser) => {
+        if (a.username < b.username) {
+            return -1;
+        }
+        if (a.username > b.username) {
+            return 1;
+        }
+        return 0;
+    }
+
     let addAdmin = async (id: number) => {
         let response = await axios.patch(`http://localhost:8080/users/admin/setAdmin/${id}`, {},
         {withCredentials: true}
@@ -63,7 +73,7 @@ function GetAllUsers() {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user) => {
+                    {users.sort(compare).map((user) => {
                         return (
                             <tr key={user.userId}>
                                 <td>{user.userId}</td>
