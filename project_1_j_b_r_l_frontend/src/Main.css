@@ -34,3 +34,21 @@ body {
     opacity: 0.98;
     
 }
+.thumbnail{
+
+    position: absolute;
+    height: 50%;
+
+    border: none;
+}
+.buy-or-read{
+    position: absolute;
+    top: 45%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    padding: 10px;
+    box-shadow: 0 0 10px #000;
+}
