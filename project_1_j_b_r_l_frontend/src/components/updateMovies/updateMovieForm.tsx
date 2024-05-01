@@ -21,7 +21,7 @@ function UpdateMovieForm() {
         const fetchMovie = async () => {
             try {
                 const response = await axios.get(`http://localhost:8080/movies/${id}`);
-                const { movieId, name, price, description, url } = response.data;
+                const { movieId, name, price, description, url, snapshot } = response.data;
                 setMovieTitle(name);
                 setPrice(price);
                 setDescription(description);
@@ -47,7 +47,7 @@ function UpdateMovieForm() {
                 price: price,
                 description: description,
                 url: url,
-                snapshoturl: snapshot
+                snapshot: snapshot
             }, { withCredentials: true});
 
             alert(`${movieTitle} has been updated successfully!`);

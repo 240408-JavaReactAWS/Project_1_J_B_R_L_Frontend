@@ -83,28 +83,30 @@ function Register() {
         <div className='card'>
           <h1 className="card-header">Register</h1>
           <div className="card-body">
-          <h4 className={className}>{error}</h4> 
-            <div className="form-group">
-              <label htmlFor='usernameInput'>Username:</label>
-              <input id='usernameInput' type='text' onChange={handleUsernameChange} />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='passwordInput'>Password:</label>
-              <input id='passwordInput' type='password' onChange={handlePasswordChange} />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='nameInput'>Name:</label>
-              <input id='nameInput' type='text' onChange={handleNameChange} />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='emailInput'>Email:</label>
-              <input id='emailInput' type='text' onChange={handleEmailChange} />
-            </div>
-            {/* <div className='form-group'>
-              <label htmlFor='isAdminInput'>Is Admin:</label>
-              <input id='isAdminInput' type='checkbox' onClick={handleIsAdminChange} />
-            </div> */}
-            <button className="btn btn-primary" onClick={handleRegister} type='submit'>Register!</button>
+            <form>
+              <h4 className={className}>{error}</h4> 
+              <div className="form-group">
+                <label htmlFor='usernameInput'>Username:</label>
+                <input id='usernameInput' type='text' className="form-control" onChange={handleUsernameChange} />
+              </div>
+              <div className='form-group'>
+                <label htmlFor='passwordInput'>Password:</label>
+                <input id='passwordInput' type='password' className="form-control" onChange={handlePasswordChange} />
+              </div>
+              <div className='form-group'>
+                <label htmlFor='nameInput'>Name:</label>
+                <input id='nameInput' type='text' className="form-control" onChange={handleNameChange} />
+              </div>
+              <div className='form-group'>
+                <label htmlFor='emailInput'>Email:</label>
+                <input id='emailInput' type='text' className="form-control" onChange={handleEmailChange} />
+              </div>
+              {/* <div className='form-group'>
+                <label htmlFor='isAdminInput'>Is Admin:</label>
+                <input id='isAdminInput' type='checkbox' onClick={handleIsAdminChange} />
+              </div> */}
+              <button className="btn btn-primary" onClick={handleRegister} type='submit'>Register!</button>
+            </form>
           </div>
         </div>
         
