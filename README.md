@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was build with React using Typescript and CSS.
+This project was built with React using Typescript and CSS.
 
 To install the necessary packages for this project run the command `npm install`
 
